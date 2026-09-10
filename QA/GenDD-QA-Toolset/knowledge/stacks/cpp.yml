@@ -1,0 +1,40 @@
+name: C++
+description: Native C++ — GoogleTest, CMake/CTest, sanitizers
+
+test_command: "ctest --test-dir build --output-junit junit.xml --output-on-failure"
+artifact_format: junit_xml
+coverage_format: lcov
+
+frameworks:
+  runner: GoogleTest, Catch2, doctest
+  assertions: GoogleTest EXPECT/ASSERT macros, Catch2 REQUIRE/CHECK
+  mocks: GoogleMock, hand-written fakes
+  coverage: gcov/lcov, llvm-cov
+  build: CMake + CTest, Bazel cc_test, Meson
+  sanitizers: ASan, TSan, UBSan (Clang/GCC)
+  fuzzing: libFuzzer, AFL++
+
+common_artifacts:
+  test_results: "junit.xml (CTest --output-junit or GoogleTest --gtest_output=xml:)"
+  coverage: "lcov.info or llvm-cov export JSON"
+  logs: "CTest output, sanitizer reports, valgrind logs"
+
+ci_example: |
+  # Build and test with sanitizers
+  cmake -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined"
+  cmake --build build
+  ctest --test-dir build --output-junit test-output/junit.xml --output-on-failure
+
+stack_context: |
+  This is a C++ project. When analyzing failures:
+  - Reference GoogleTest macros (EXPECT_EQ, ASSERT_TRUE, TEST_F for fixtures)
+  - Sanitizer failures (ASan, TSan, UBSan) are release-critical — treat as Tier 0
+  - Memory leaks and use-after-free from ASan are high severity
+  - Data races from TSan indicate concurrency bugs
+  - UBSan findings indicate undefined behavior that may cause unpredictable results
+  - CTest may report SEGFAULT or signal-based failures
+  - Valgrind output indicates memory issues on platforms without sanitizer support
+  - Common issues: lifetime errors, dangling pointers, uninitialized memory, ODR violations
+  - Flaky tests often indicate UB or timing assumptions — fix root cause, not retries
+
+guidance: "cpp-testing-guidance.md"

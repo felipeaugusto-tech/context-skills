@@ -1,0 +1,33 @@
+name: Python
+description: CPython ecosystem — pytest, coverage.py, tox/nox
+
+test_command: "pytest --junitxml=junit.xml --cov --cov-report=xml"
+artifact_format: junit_xml
+coverage_format: cobertura_xml
+
+frameworks:
+  runner: pytest
+  assertions: pytest asserts, hypothesis
+  mocks: unittest.mock, pytest-mock, responses
+  coverage: coverage.py with pytest-cov
+  orchestration: tox, nox
+
+common_artifacts:
+  test_results: "junit.xml (via --junitxml)"
+  coverage: "coverage.xml (via --cov-report=xml)"
+  logs: "pytest stdout/stderr, tracebacks"
+
+ci_example: |
+  pytest --junitxml=test-output/junit.xml \
+         --cov=src --cov-report=xml:test-output/coverage.xml
+
+stack_context: |
+  This is a Python project using pytest. When analyzing failures:
+  - Reference pytest fixtures, conftest.py, and parametrize decorators
+  - Mention pytest markers (@pytest.mark) for test categorization
+  - Note that async tests use pytest-asyncio
+  - Coverage is measured with coverage.py / pytest-cov
+  - Common patterns: factory_boy for data, responses/httpx for HTTP mocking
+  - Flaky tests may indicate shared state via module-scoped fixtures
+
+guidance: "python-testing-guidance.md"

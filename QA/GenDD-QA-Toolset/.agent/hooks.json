@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/qa-session-init.sh",
+        "timeout": 5
+      }
+    ],
+    "postToolUse": [
+      {
+        "command": ".cursor/hooks/qa-test-edit.sh",
+        "matcher": "Write"
+      },
+      {
+        "command": ".cursor/hooks/qa-story-update.sh",
+        "matcher": "Write"
+      },
+      {
+        "command": ".cursor/hooks/qa-test-evidence.sh",
+        "matcher": "Shell"
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/qa-release-gate.sh",
+        "matcher": "deploy|release|publish",
+        "failClosed": false
+      }
+    ]
+  }
+}

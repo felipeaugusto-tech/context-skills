@@ -1,0 +1,37 @@
+name: TypeScript
+description: Node.js / browser — Vitest, Jest, Playwright, MSW
+
+test_command: "vitest run --reporter=junit --outputFile=junit.xml --coverage"
+artifact_format: junit_xml
+coverage_format: istanbul_json
+
+frameworks:
+  runner: Vitest, Jest, Mocha
+  assertions: Vitest/Jest expect, Chai
+  mocks: MSW (Mock Service Worker), vi.fn/jest.fn
+  coverage: c8, Istanbul
+  e2e: Playwright, Cypress
+
+common_artifacts:
+  test_results: "junit.xml (via --reporter=junit)"
+  coverage: "coverage/coverage-summary.json or lcov.info"
+  logs: "test stdout, Playwright traces and screenshots"
+
+ci_example: |
+  # Run unit/integration tests
+  vitest run --reporter=junit --outputFile=test-output/junit.xml --coverage
+
+  # Run E2E tests
+  playwright test --reporter=junit --output=test-output/e2e-junit.xml
+
+stack_context: |
+  This is a TypeScript project. When analyzing failures:
+  - Reference Vitest/Jest test structure (describe, it, expect)
+  - Mention MSW for HTTP mocking and its handler patterns
+  - Note Playwright traces and screenshots as evidence for E2E failures
+  - Coverage uses c8 or Istanbul; check branch coverage not just line
+  - Common issues: async/await mistakes, weak assertions (toBeTruthy), over-mocking
+  - For React/Vue: mention Testing Library and user-event patterns
+  - Flaky E2E tests often indicate timing issues or unstable selectors
+
+guidance: "typescript-testing-guidance.md"

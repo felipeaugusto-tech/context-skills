@@ -1,0 +1,49 @@
+name: .NET
+description: .NET / C# — xUnit, ASP.NET Core, WebApplicationFactory
+
+test_command: "dotnet test --logger \"trx;LogFileName=results.trx\" --collect:\"XPlat Code Coverage\""
+artifact_format: trx
+coverage_format: cobertura_xml
+
+artifact_conversion: |
+  .NET produces TRX format natively. For the QA orchestrator:
+  - Option A: Use --logger "junit;LogFileName=junit.xml" (requires JUnitTestLogger NuGet)
+  - Option B: Convert TRX to JUnit with trx2junit: dotnet tool install -g trx2junit && trx2junit results.trx
+  - Option C: Pass TRX directly with --stack dotnet (orchestrator handles TRX parsing)
+
+frameworks:
+  runner: xUnit (common), NUnit, MSTest
+  assertions: FluentAssertions, Shouldly, built-in
+  mocks: Moq, NSubstitute
+  integration: WebApplicationFactory, TestServer
+  coverage: Coverlet
+  build: dotnet test, solution-level test projects
+
+common_artifacts:
+  test_results: "results.trx (TRX format) or junit.xml (with JUnitTestLogger)"
+  coverage: "coverage.cobertura.xml (Coverlet output)"
+  logs: "dotnet test stdout, test output from ITestOutputHelper"
+
+ci_example: |
+  # Option A: JUnit output
+  dotnet test --logger "junit;LogFileName=test-output/junit.xml" \
+              --collect:"XPlat Code Coverage"
+
+  # Option B: TRX with conversion
+  dotnet test --logger "trx;LogFileName=test-output/results.trx" \
+              --collect:"XPlat Code Coverage"
+  trx2junit test-output/results.trx --output test-output/
+
+stack_context: |
+  This is a .NET/C# project. When analyzing failures:
+  - Reference xUnit attributes ([Fact], [Theory], [Trait])
+  - Mention WebApplicationFactory and TestServer for ASP.NET Core integration tests
+  - Note Moq/NSubstitute for dependency mocking via interfaces
+  - Coverlet provides code coverage in Cobertura XML format
+  - TRX is the native test result format; may need conversion to JUnit XML
+  - Common issues: DI container misconfiguration, EF Core in-memory vs real DB differences
+  - FluentAssertions provides readable failure messages
+  - Collection and fixture patterns reduce test setup overhead
+  - Flaky tests may indicate shared DbContext state or port conflicts in TestServer
+
+guidance: "dotnet-testing-guidance.md"

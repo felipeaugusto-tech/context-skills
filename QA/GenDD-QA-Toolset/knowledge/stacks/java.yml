@@ -1,0 +1,39 @@
+name: Java
+description: JVM — JUnit 5, Mockito, Gradle/Maven, Spring
+
+test_command: "./gradlew test jacocoTestReport"
+artifact_format: junit_xml
+coverage_format: jacoco_xml
+
+frameworks:
+  runner: JUnit 5 (Jupiter), TestNG (legacy)
+  assertions: AssertJ, Hamcrest
+  mocks: Mockito
+  coverage: JaCoCo
+  integration: Testcontainers, WireMock
+  build: Gradle, Maven (Surefire/Failsafe)
+
+common_artifacts:
+  test_results: "Surefire/Failsafe XML (JUnit-compatible, build/test-results/)"
+  coverage: "jacoco.xml (build/reports/jacoco/)"
+  logs: "Gradle/Maven stdout, stack traces from Surefire reports"
+
+ci_example: |
+  # Gradle
+  ./gradlew test jacocoTestReport
+
+  # Maven
+  mvn verify
+
+stack_context: |
+  This is a Java/JVM project. When analyzing failures:
+  - Reference JUnit 5 annotations (@Test, @DisplayName, @Tag, @Disabled)
+  - Mention Spring test slices (@WebMvcTest, @DataJpaTest, @SpringBootTest)
+  - Note Mockito patterns (when/thenReturn, verify)
+  - Testcontainers for integration tests with real databases
+  - WireMock for HTTP stub servers
+  - Surefire XML reports are JUnit-compatible
+  - Common issues: Spring context startup failures, transaction rollback in tests
+  - Flaky tests may indicate shared Spring context state or port conflicts
+
+guidance: "java-testing-guidance.md"

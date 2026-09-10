@@ -1,0 +1,241 @@
+﻿Verification Type,Check Slug,Check Name,Category,Lifecycle stage,Reason Slug,Reason Text,Status
+id,id_aamva_database_lookup,AAMVA database lookup,fraud,sunset,aamva_server_error,AAMVA database is temporarily unavailable.,not_applicable
+id,id_aamva_database_lookup,AAMVA database lookup,fraud,sunset,insufficient_match,ID details did not sufficiently match an entry in the AAMVA database.,failed
+id,id_aamva_database_lookup,AAMVA database lookup,fraud,sunset,invalid_country,AAMVA database is not available for the given country.,not_applicable
+id,id_aamva_database_lookup,AAMVA database lookup,fraud,sunset,invalid_id_type,ID type is not supported by AAMVA.,not_applicable
+id,id_aamva_database_lookup,AAMVA database lookup,fraud,sunset,invalid_issuing_authority,AAMVA database is not available for this jurisdiction.,not_applicable
+id,id_aamva_database_lookup,AAMVA database lookup,fraud,sunset,missing_barcode_extraction,Barcode on the ID was decoded and thus was not run against the AAMVA database.,not_applicable
+id,id_aamva_database_lookup,AAMVA database lookup,fraud,sunset,missing_required_attributes,ID is missing required details to run against the AAMVA database.,not_applicable
+id,id_account_comparison,Account comparison,fraud,production,face_mismatch,Face is inconsistent with the selfie found on the account.,failed
+id,id_account_comparison,Account comparison,fraud,production,missing_properties,Missing properties for account comparison.,not_applicable
+id,id_account_comparison,Account comparison,fraud,production,names_swapped,The claimed first name matches the extracted last name and vice versa.,failed
+id,id_account_comparison,Account comparison,fraud,production,no_account,No account associated with this verification.,not_applicable
+id,id_account_comparison,Account comparison,fraud,production,property_conflict,ID properties are inconsistent with the account details.,failed
+id,id_account_comparison,Account comparison,fraud,production,unsupported_comparison_language,Comparison attributes include characters from an unsupported language.,not_applicable
+id,id_age_comparison,Age comparison,user_action_required,production,failed_requirement,ID details do not meet age requirements.,failed
+id,id_age_comparison,Age comparison,user_action_required,production,missing_birthdate,The birthdate is missing.,not_applicable
+id,id_age_comparison,Age comparison,user_action_required,production,no_configuration,The verification does not have an age comparison configuration.,not_applicable
+id,id_age_inconsistency_detection,Portrait age,fraud,production,inconsistent_age,The age listed on the ID appears to be different than the age estimated from the face portrait.,failed
+id,id_age_inconsistency_detection,Portrait age,fraud,production,missing_age_range,The age range is missing.,not_applicable
+id,id_age_inconsistency_detection,Portrait age,fraud,production,missing_birthdate,The birth date is missing.,not_applicable
+id,id_age_inconsistency_detection,Portrait age,fraud,production,missing_face,The ID has no face.,not_applicable
+id,id_age_inconsistency_detection,Portrait age,fraud,production,missing_issuing_date,The issue date is missing.,not_applicable
+id,id_attribute_comparison,Attribute comparison,fraud,production,missing_properties,Claimed attributes like name or birthdate are missing.,not_applicable
+id,id_attribute_comparison,Attribute comparison,fraud,production,property_conflict,ID properties are inconsistent with the provided values.,failed
+id,id_attribute_comparison,Attribute comparison,fraud,production,unsupported_comparison_language,Claimed or extracted attributes include characters from an unsupported language.,not_applicable
+id,id_barcode_detection,Barcode,user_action_required,production,back_missing,Unsuccessful detection of the back of the ID.,failed
+id,id_barcode_detection,Barcode,user_action_required,production,barcode_not_decoded,The barcode on the ID cannot be decoded.,failed
+id,id_barcode_detection,Barcode,user_action_required,production,barcode_not_detected,The barcode on the ID is not found.,failed
+id,id_barcode_detection,Barcode,user_action_required,production,barcode_not_required,The barcode was not collected.,not_applicable
+id,id_barcode_detection,Barcode,user_action_required,production,unsupported_country,This check is not currently supported for this country.,not_applicable
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,back_missing,Unsuccessful detection of the back of the ID.,not_applicable
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,barcode_not_decoded,The barcode on the ID cannot be decoded.,not_applicable
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,barcode_not_detected,The barcode on the ID is not found.,not_applicable
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,field_invalid,The barcode has fields in invalid formats.,failed
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,format_invalid,The barcode does not follow ID specifications.,failed
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,issuer_invalid,The barcode specifies an issuer that is invalid.,failed
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,issuer_mismatch,The barcode has inconsistent issuer information.,failed
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,metadata_invalid,Barcode metadata is inconsistent with genuine IDs from the provided issuer.,failed
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,required_field_missing,The barcode is missing required fields.,failed
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,revision_invalid,Barcode revision is inconsistent with genuine IDs from the provided issuer.,failed
+id,id_barcode_inconsistency_detection,Barcode inconsistency,fraud,production,unsupported_country,This check is not currently supported for this country.,not_applicable
+id,id_blur_detection,Blur,user_action_required,beta,too_blurry,The submission is blurry.,failed
+id,id_color_inconsistency_detection,Color,fraud,production,image_is_monochrome,The colors detected on the ID appear to be monochromatic.,failed
+id,id_compromised_detection,Compromised submission,fraud,production,fraudulent,The ID is reported as fraudulent.,failed
+id,id_compromised_detection,Compromised submission,fraud,production,image_quality_low,Portrait quality is too low for comparison.,not_applicable
+id,id_compromised_detection,Compromised submission,fraud,production,publicly_available,The ID is likely a sample ID or publicly available.,failed
+id,id_compromised_detection,Compromised submission,fraud,production,sample_document,The ID contains a word that indicates it is a sample.,failed
+id,id_corner_detection,Corner detection,user_action_required,beta,insufficient_padding,The ID is too close to the edge of the image.,failed
+id,id_corner_detection,Corner detection,user_action_required,beta,unidentified,The ID could not be identified.,not_applicable
+id,id_corner_detection,Corner detection,user_action_required,beta,unsupported_country,The country is not supported by this check.,not_applicable
+id,id_corner_detection,Corner detection,user_action_required,beta,unsupported_document_type,The type of ID is not supported by this check.,not_applicable
+id,id_custom_detection,Custom detection,fraud,beta,matched,Detected a match based on configuration,failed
+id,id_custom_detection,Custom detection,fraud,beta,not_enabled,The verification check is not enabled.,not_applicable
+id,id_damaged_detection,Damaged detection,fraud,beta,holepunch_detected,A holepunch was detected on the ID.,failed
+id,id_damaged_detection,Damaged detection,fraud,beta,defect_detected,"Clipped corners, cracks, or torn edges were detected on the ID.",failed
+id,id_disallowed_country_detection,Allowed country,user_action_required,production,no_country,No country was extracted.,failed
+id,id_disallowed_country_detection,Allowed country,user_action_required,production,no_country_configuration,All countries are allowed.,not_applicable
+id,id_disallowed_country_detection,Allowed country,user_action_required,production,not_allowed_by_configuration,The country of the ID is not allowed based on template requirements.,failed
+id,id_disallowed_country_detection,Allowed country,user_action_required,production,selected_country_mismatch,The country of the ID does not match the country selected by the user.,failed
+id,id_disallowed_type_detection,Allowed ID type,user_action_required,production,disallowed_designation,The ID has a designation that is not allowed based on template requirements.,failed
+id,id_disallowed_type_detection,Allowed ID type,user_action_required,production,not_allowed_by_configuration,The ID type is not allowed based on template requirements.,failed
+id,id_disallowed_type_detection,Allowed ID type,user_action_required,production,restricted_type,The ID type cannot be collected due to federal compliance requirements.,failed
+id,id_disallowed_type_detection,Allowed ID type,user_action_required,production,type_mismatch,The ID type detected does not match the ID type the user selected.,failed
+id,id_disallowed_type_detection,Allowed ID type,user_action_required,production,type_not_detected,The ID type of the submission could not be identified.,failed
+id,id_disallowed_type_detection,Allowed ID type,user_action_required,production,unrestricted,There are no restrictions on ID type.,not_applicable
+id,id_double_side_detection,Double side,user_action_required,production,side_submitted_twice,The back and front submissions of the ID are of the same side.,failed
+id,id_double_side_detection,Double side,user_action_required,production,single_sided,The provided ID is expected to only have one side,not_applicable
+id,id_electronic_replica_detection,Electronic replica,fraud,production,digital_text_found,The submission may contain digital text which is often found on a replica.,failed
+id,id_electronic_replica_detection,Electronic replica,fraud,production,emulator_detected,The submission may have been submitted on an emulator.,failed
+id,id_electronic_replica_detection,Electronic replica,fraud,production,photocopy_found,The submission may be a replica of a photocopy.,failed
+id,id_electronic_replica_detection,Electronic replica,fraud,production,replica_detected,The submission may be a generic replica.,failed
+id,id_electronic_replica_detection,Electronic replica,fraud,production,rooted_device,The submission may have been submitted on a rooted device.,failed
+id,id_electronic_replica_detection,Electronic replica,fraud,production,screenshot_found,The submission may be a replica of a screenshot.,failed
+id,id_electronic_replica_detection,Electronic replica,fraud,production,virtual_camera_detected,The submission may have been submitted using a virtual camera.,failed
+id,id_entity_detection,Government ID,user_action_required,production,cannot_verify_id,This submission does not appear to include a government ID.,failed
+id,id_experimental_model_detection,Experimental,fraud,alpha,match_detected,A configured match was detected.,failed
+id,id_experimental_model_detection,Experimental,fraud,alpha,not_enabled,The verification check is not enabled.,not_applicable
+id,id_expired_detection,Expiration,user_action_required,production,expired,The ID is expired.,failed
+id,id_expired_detection,Expiration,user_action_required,production,no_expiration_date,The expiration date is missing.,not_applicable
+id,id_extracted_properties_detection,Extracted properties,user_action_required,production,no_required_properties,The template is not configured to require extraction of certain properties.,not_applicable
+id,id_extracted_properties_detection,Extracted properties,user_action_required,production,property_not_extracted,Required ID field(s) were not extracted.,failed
+id,id_extracted_properties_detection,Extracted properties,user_action_required,production,name_partially_extracted,"First name and last name were required, but only one was extracted.",failed
+id,id_extracted_properties_detection,Extracted properties,user_action_required,production,required_properties_absent_on_id,The missing required properties are not present on the ID.,passed
+id,id_extraction_inconsistency_detection,Extraction inconsistency,fraud,production,back_missing,Unsuccessful detection of the back of the ID.,not_applicable
+id,id_extraction_inconsistency_detection,Extraction inconsistency,fraud,production,missing_properties,Barcode is missing properties to compare.,not_applicable
+id,id_extraction_inconsistency_detection,Extraction inconsistency,fraud,production,property_mismatch,Details extracted from the front of the ID are different than the details extracted from the barcode.,failed
+id,id_extraction_inconsistency_detection,Extraction inconsistency,fraud,production,unsupported_country,This check is not currently supported for this country.,not_applicable
+id,id_fabrication_detection,Fabrication,fraud,production,camouflage_passport,The submitted ID is issued by an unrecognized or invalid government entity.,failed
+id,id_fabrication_detection,Fabrication,fraud,production,fabricated_id_version,The submitted ID does not match a known in-circulation format of that ID type.,passed
+id,id_glare_detection,Glare,user_action_required,beta,too_much_glare,The submission has glare.,failed
+id,id_handwriting_detection,Handwriting,fraud,sunset,handwriting_found,The ID appears to have handwriting on it.,failed
+id,id_inconsistent_repeat_detection,Inconsistent repeat,fraud,production,inconsistent_details,The face portrait matches that of a previously submitted ID with different text attributes.,failed
+id,id_inconsistent_repeat_detection,Inconsistent repeat,fraud,production,inconsistent_face,The ID text attributes match that of a previously submitted ID with a different face portrait.,failed
+id,id_inconsistent_repeat_detection,Inconsistent repeat,fraud,production,low_quality_portrait,Portrait quality is too low for comparison.,not_applicable
+id,id_inconsistent_repeat_detection,Inconsistent repeat,fraud,production,no_portrait,The face portrait is missing.,not_applicable
+id,id_inconsistent_repeat_detection,Inconsistent repeat,fraud,production,not_enabled,Inconsistent repeat is not enabled.,not_applicable
+id,id_inquiry_comparison,Inquiry comparison,fraud,production,missing_properties,Inquiry details like name or birthdate are missing.,not_applicable
+id,id_inquiry_comparison,Inquiry comparison,fraud,production,names_swapped,The claimed first name matches the extracted last name and vice versa.,failed
+id,id_inquiry_comparison,Inquiry comparison,fraud,production,no_inquiry,No associated inquiry.,not_applicable
+id,id_inquiry_comparison,Inquiry comparison,fraud,production,property_conflict,ID details like name or birthdate are inconsistent between different submission attempts. *Name on Order does not match the name on the Government ID. See name extracted from ID above.,failed
+id,id_inquiry_comparison,Inquiry comparison,fraud,production,unsupported_comparison_language,Comparison attributes include characters from an unsupported language.,not_applicable
+id,id_mrz_detection,MRZ Detected,user_action_required,production,mrz_incomplete,"The full area of the encoded, machine-readable text on the ID was not detected.",failed
+id,id_mrz_detection,MRZ Detected,user_action_required,production,mrz_not_found,"The encoded, machine-readable text on the ID is not found.",failed
+id,id_mrz_inconsistency_detection,MRZ Inconsistency,fraud,production,mrz_checksum_invalid,"The encoded, machine-readable text on the ID has invalid checksum(s).",failed
+id,id_mrz_inconsistency_detection,MRZ Inconsistency,fraud,production,mrz_not_found,"The encoded, machine-readable text on the ID is not found.",not_applicable
+id,id_mrz_inconsistency_detection,MRZ Inconsistency,fraud,production,mrz_not_verifiable,"The encoded, machine-readable text on the ID is present but not verifiable (e.g. because it may be partially obscured).",not_applicable
+id,id_number_format_inconsistency_detection,ID number format inconsistency,fraud,production,incorrect_format,The ID number has an invalid format.,failed
+id,id_number_format_inconsistency_detection,ID number format inconsistency,fraud,production,invalid_checksum,The ID number has an invalid checksum.,failed
+id,id_number_format_inconsistency_detection,ID number format inconsistency,fraud,production,invalid_encoded_data,Data encoded in the ID number does not match data extracted from the ID.,failed
+id,id_number_format_inconsistency_detection,ID number format inconsistency,fraud,production,unsupported_country,This check is not currently supported for this country.,not_applicable
+id,id_paper_detection,Paper detection,fraud,beta,paper_id_detected,The submitted ID is printed on a piece of paper.,failed
+id,id_paper_detection,Paper detection,fraud,beta,expected_paper_id_type,The submitted ID type matches a known paper ID type.,not_applicable
+id,id_physical_tamper_detection,ID physical tampering,fraud,beta,tamper_detected,The submission appears to have been tampered physically.,passed
+id,id_po_box_detection,PO box,user_action_required,production,address_is_hc_box,The address is a HC box.,passed
+id,id_po_box_detection,PO box,user_action_required,production,address_is_po_box,The address is a PO box.,failed
+id,id_po_box_detection,PO box,user_action_required,production,missing_address,No address was submitted.,not_applicable
+id,id_portrait_clarity_detection,Portrait clarity,user_action_required,production,portrait_not_clear,The face portrait is unclear and out of focus.,failed
+id,id_portrait_detection,Portrait,user_action_required,production,portrait_not_found,The submission has no face portrait.,failed
+id,id_public_figure_detection,Public figure,fraud,production,public_figure_detected,The face portrait appears to match that of a known public figure.,failed
+id,id_public_figure_detection,Public figure,fraud,production,low_quality_portrait,Portrait quality is too low for comparison.,not_applicable
+id,id_public_figure_detection,Public figure,fraud,production,missing_face,The ID has no face.,not_applicable
+id,id_real_id_detection,REAL ID,user_action_required,production,federal_limits_apply,ID does not meet federal guidelines for REAL Enhanced IDs.,failed
+id,id_real_id_detection,REAL ID,user_action_required,production,federal_limits_undetected,ID's compliance type could not be detected.,failed
+id,id_real_id_detection,REAL ID,user_action_required,production,invalid_barcode,Barcode on ID could not be read.,not_applicable
+id,id_real_id_detection,REAL ID,user_action_required,production,invalid_country,REAL ID is not available for the given country.,not_applicable
+id,id_real_id_detection,REAL ID,user_action_required,production,invalid_id_type,ID type is not supported by REAL ID.,not_applicable
+id,id_real_id_detection,REAL ID,user_action_required,production,no_barcode,ID's barcode was not provided.,not_applicable
+id,id_repeat_detection,Repeat,fraud,production,not_enabled,ID repeat detection is not enabled.,not_applicable
+id,id_repeat_detection,Repeat,fraud,production,repeat,The ID details and face portrait match that of a previously submitted ID on a different account.,failed
+id,id_repeat_detection,Repeat,fraud,production,details_only_repeat,The ID details match that of a previously submitted ID on a different account.,failed
+id,id_selfie_comparison,ID-to-Selfie comparison,fraud,production,face_mismatch,The face portrait on the ID and the selfie appear to be different faces.,failed
+id,id_selfie_comparison,ID-to-Selfie comparison,fraud,production,no_selfie,The submission has no selfie.,not_applicable
+id,id_tamper_detection,ID image tampering,fraud,production,exif_inconsistency,The submission has inconsistencies in the file metadata.,failed
+id,id_tamper_detection,ID image tampering,fraud,production,image_manipulated,The submission appears to have been tampered by an editor.,failed
+id,id_tamper_detection,ID image tampering,fraud,production,portrait_tampering,The submission appears to have a tampered portrait.,passed
+id,id_unprocessable_submission_detection,Processable submission,user_action_required,production,age_below_limit,The age detected in the portrait is below the processable age limit.,failed
+id,id_unprocessable_submission_detection,Processable submission,user_action_required,production,submission_invalid,The submission is unprocessable.,failed
+id,id_valid_dates_detection,Valid dates,fraud,production,issuer_rules_inconsistency,The dates on the ID appear to be in violation of issuing authority rules.,failed
+id,id_valid_dates_detection,Valid dates,fraud,production,unknown_date_rules,"The ID is temporary or limited-term, so the valid date rules are unknown",not_applicable
+id,id_video_quality_detection,Video quality,user_action_required,beta,corrupt,The video is corrupt.,failed
+id,id_video_quality_detection,Video quality,user_action_required,beta,low_bit_rate,The bit rate is too low.,failed
+id,id_video_quality_detection,Video quality,user_action_required,beta,low_frame_rate,The frame rate is too low.,failed
+id,id_video_quality_detection,Video quality,user_action_required,beta,not_found,There was no video uploaded.,failed
+id,id_video_quality_detection,Video quality,user_action_required,beta,duration_too_short,The duration of the video was too short.,failed
+selfie,selfie_account_comparison,Account comparison,fraud,production,face_mismatch,The selfie is inconsistent with the portrait on the account.,failed
+selfie,selfie_account_comparison,Account comparison,fraud,production,missing_face,The selfie has no face.,not_applicable
+selfie,selfie_account_comparison,Account comparison,fraud,production,no_account_selfie_present,The account has no selfie.,not_applicable
+selfie,selfie_age_comparison,Age comparison,fraud,production,age_above_limit,The age range detected in the selfie is above the age limit.,failed
+selfie,selfie_age_comparison,Age comparison,fraud,production,age_below_limit,The age range detected in the selfie is below the age limit.,failed
+selfie,selfie_age_comparison,Age comparison,fraud,production,age_mismatch,The reference age falls outside of the age range detected in the selfie.,failed
+selfie,selfie_age_comparison,Age comparison,fraud,production,no_reference_birthdate,No reference birthdate was provided.,not_applicable
+selfie,selfie_age_comparison,Age comparison,fraud,production,no_selfie_age,No perceived age was available from the selfie.,not_applicable
+selfie,selfie_age_comparison,Age comparison,fraud,production,no_selfie_age_estimation,No perceived age estimation was available from the selfie.,not_applicable
+selfie,selfie_age_inconsistency_detection,Age inconsistency detection,fraud,alpha,inconsistent_age,The reference age and perceived selfie age estimation are inconsistent.,failed
+selfie,selfie_age_inconsistency_detection,Age inconsistency detection,fraud,alpha,inconsistent_age_adult_as_minor,"The reference age indicates a minor, but the selfie age estimation indicates an adult.",failed
+selfie,selfie_age_inconsistency_detection,Age inconsistency detection,fraud,alpha,inconsistent_age_minor_as_adult,"The reference age indicates an adult, but the selfie age estimation indicates a minor.",failed
+selfie,selfie_age_inconsistency_detection,Age inconsistency detection,fraud,alpha,no_reference_age,No reference age was provided.,not_applicable
+selfie,selfie_age_inconsistency_detection,Age inconsistency detection,fraud,alpha,no_selfie_age_prediction,No perceived age prediction was available from the selfie.,not_applicable
+selfie,selfie_age_threshold_comparison,Age threshold comparison,fraud,production,age_outside_limits,The age range detected in the selfie falls outside of configured age limits.,failed
+selfie,selfie_age_threshold_comparison,Age threshold comparison,fraud,production,no_age_limits,No min or max age limit was configured.,not_applicable
+selfie,selfie_age_threshold_comparison,Age threshold comparison,fraud,production,no_selfie_age_prediction,No perceived age prediction was available from the selfie.,failed
+selfie,selfie_attribute_comparison,Attribute comparison,fraud,production,face_mismatch,The selfie is inconsistent with the provided selfies.,failed
+selfie,selfie_attribute_comparison,Attribute comparison,fraud,production,no_comparison_inputs,No selfies were provided for comparison.,not_applicable
+selfie,selfie_attribute_comparison,Attribute comparison,fraud,production,no_selfie,The submission has no selfie.,not_applicable
+selfie,selfie_custom_detection,Custom detection,fraud,beta,matched,Detected a match based on configuration,failed
+selfie,selfie_custom_detection,Custom detection,fraud,beta,not_enabled,The verification check is not enabled.,not_applicable
+selfie,selfie_experimental_model_detection,Experimental,fraud,alpha,match_detected,A configured match was detected.,failed
+selfie,selfie_experimental_model_detection,Experimental,fraud,alpha,not_enabled,The verification check is not enabled.,not_applicable
+selfie,selfie_face_covering_detection,Face covering,user_action_required,production,face_covering_detected,The selfie contains a person with a PPE face covering.,failed
+selfie,selfie_glare_detection,Glare,user_action_required,sunset,too_much_glare,The submission has glare.,failed
+selfie,selfie_glasses_detection,Glasses,user_action_required,production,glasses,Glasses are detected and may interfere with selfie face detection.,failed
+selfie,selfie_glasses_detection,Glasses,user_action_required,production,sunglasses,Sunglasses are detected and may interfere with selfie face detection.,failed
+selfie,selfie_id_comparison,Selfie-to-ID comparison,fraud,production,comparison_attempt_unsuccessful,An error has occurred that made the selfie and government ID comparison attempt fail.,failed
+selfie,selfie_id_comparison,Selfie-to-ID comparison,fraud,production,face_mismatch,The selfie and the face portrait in the ID appear to be different faces.,failed
+selfie,selfie_id_comparison,Selfie-to-ID comparison,fraud,production,no_government_id,Inquiry has no ID portrait.,not_applicable
+selfie,selfie_id_comparison,Selfie-to-ID comparison,fraud,production,no_selfie,Inquiry has no selfie.,not_applicable
+selfie,selfie_image_quality_detection,Image quality,user_action_required,beta,insufficient_detail,Camera resolution or image detail is too low.,failed
+selfie,selfie_image_quality_detection,Image quality,user_action_required,beta,insufficient_illumination,The submission has insufficient lighting.,failed
+selfie,selfie_image_quality_detection,Image quality,user_action_required,beta,excessive_illumination,The submission is too excessively lit.,failed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,deepfake_detected,The selfie appears to be a deepfake.,passed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,device_detected,The selfie does not appear to be a live person.,failed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,emulator_detected,The submission may have been submitted on an emulator.,failed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,gen_ai_detected,The selfie appears to be an AI generated image.,failed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,invalid_pose,Failed to determine selfie liveness due to inadequate image quality.,failed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,not_enabled,Not enabled.,not_applicable
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,replica_2d_detected,The selfie appears to be a 2d replica.,failed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,replica_detected,The selfie has characteristics that are indicative of a spoof.,failed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,rooted_device,The images may have been submitted on a rooted device.,failed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,unexpected_orientation,The submission is not properly oriented.,failed
+selfie,selfie_liveness_detection,Selfie liveness,fraud,production,virtual_camera_detected,The selfie has characteristics that are indicative of virtual camera usage.,failed
+selfie,selfie_multiple_faces_detection,Multiple faces,fraud,production,center_only,The selfie has only one pose.,not_applicable
+selfie,selfie_multiple_faces_detection,Multiple faces,fraud,production,disabled_face_comparison,Face comparison is disabled.,not_applicable
+selfie,selfie_multiple_faces_detection,Multiple faces,fraud,production,face_conflict,The selfies appear to be different faces across poses.,failed
+selfie,selfie_multiple_faces_detection,Multiple faces,fraud,production,multiple_faces_detected,The selfies has multiple faces in the frame.,failed
+selfie,selfie_persona_comparison,Persona comparison,fraud,alpha,face_mismatch,The selfie and the face from the Reusable Persona appear to be different faces.,failed
+selfie,selfie_persona_comparison,Persona comparison,fraud,alpha,missing_persona_face,The Reusable Persona doesn't have a face.,not_applicable
+selfie,selfie_persona_comparison,Persona comparison,fraud,alpha,missing_comparison_result,The comparison result is missing.,not_applicable
+selfie,selfie_portrait_quality_detection,Portrait quality,user_action_required,production,eyes_closed,The face portrait appears to have closed eyes.,passed
+selfie,selfie_portrait_quality_detection,Portrait quality,user_action_required,production,missing_face,The selfie has no face.,failed
+selfie,selfie_portrait_quality_detection,Portrait quality,user_action_required,production,portrait_not_clear,The face portrait is unclear and out of focus.,failed
+selfie,selfie_pose_detection,Pose position,fraud,production,center_only,The selfie has only one pose.,not_applicable
+selfie,selfie_pose_detection,Pose position,fraud,production,center_pose_face_obscured,The center selfie's face appears obscured.,failed
+selfie,selfie_pose_detection,Pose position,fraud,production,face_cropped,The selfie does not capture the entire face.,failed
+selfie,selfie_pose_detection,Pose position,fraud,production,face_quality,The selfie captured is unclear and out of focus,failed
+selfie,selfie_pose_detection,Pose position,fraud,production,face_too_far,The selfie captured was too small.,failed
+selfie,selfie_pose_detection,Pose position,fraud,production,missing_yaw_angles,Missing yaw angles.,failed
+selfie,selfie_pose_detection,Pose position,fraud,production,pose_order_incorrect,The submitted pose order was incorrect,failed
+selfie,selfie_pose_detection,Pose position,fraud,production,required_poses_not_found,The selfies appear to be incorrectly positioned in one or more poses.,failed
+selfie,selfie_pose_repeat_detection,Pose repeat,fraud,production,center_only,The selfie has only one pose.,not_applicable
+selfie,selfie_pose_repeat_detection,Pose repeat,fraud,production,poses_repeated,The selfies appear to repeat across poses.,failed
+selfie,selfie_public_figure_detection,Public figure,fraud,production,image_quality_low,Image quality is too low for repeat detection.,not_applicable
+selfie,selfie_public_figure_detection,Public figure,fraud,production,missing_face,The selfie has no face.,not_applicable
+selfie,selfie_public_figure_detection,Public figure,fraud,production,public_figure,The selfie submission appears to be of a known public figure.,failed
+selfie,selfie_repeat_detection,Selfie repeat,fraud,production,image_quality_low,Image quality is too low for repeat detection.,not_applicable
+selfie,selfie_repeat_detection,Selfie repeat,fraud,production,not_enabled,Selfie repeat detection is not enabled.,not_applicable
+selfie,selfie_repeat_detection,Selfie repeat,fraud,production,repeat,The selfie matches that of a previously submitted selfie on a different account.,failed
+selfie,selfie_repeat_detection,Selfie repeat,fraud,production,repeat_image,The image matches that of a previously submitted selfie on a different account.,passed
+selfie,selfie_similar_background_detection,Similar background detection,fraud,alpha,not_enabled,Similar Background Detection is not enabled.,not_applicable
+selfie,selfie_similar_background_detection,Similar background detection,fraud,alpha,similar_background_detected,The selfie submission has a similar background to a previously submitted selfie.,failed
+selfie,selfie_suspicious_entity_detection,Suspicious entity,fraud,production,suspicious_photo,The selfie submission appears to be a government ID.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,explicit_nudity_detected,Explicit nudity was detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,sexual_activity_detected,Sexual activity was detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,suggestive_detected,Suggestive content was detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,violence_detected,Violent content was detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,weapons_detected,A weapon was detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,self_harm_detected,Self-harm was detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,graphic_content_detected,Graphic content was detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,drugs_detected,Drugs or tobacco were detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,alcohol_detected,Alcohol was detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,hate_detected,Hate symbols were detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,gambling_detected,Gambling was detected in the video.,failed
+selfie,selfie_video_content_detection,Content detection,fraud,alpha,offensive_gesture_detected,An offensive gesture was detected in the video.,failed
+selfie,selfie_video_quality_detection,Video quality,user_action_required,beta,corrupt,The video is corrupt.,failed
+selfie,selfie_video_quality_detection,Video quality,user_action_required,beta,duration_too_short,The duration of the video was too short.,failed
+selfie,selfie_video_quality_detection,Video quality,user_action_required,beta,low_bit_rate,The bit rate is too low.,failed
+selfie,selfie_video_quality_detection,Video quality,user_action_required,beta,low_frame_rate,The frame rate is too low.,failed
+selfie,selfie_video_quality_detection,Video quality,user_action_required,beta,not_found,There was no video uploaded.,failed
+selfie,selfie_voice_detection,Voice detection,user_action_required,alpha,insufficient_audio_duration,The audio duration is too short.,failed
+selfie,selfie_voice_detection,Voice detection,user_action_required,alpha,no_audio_present,No audio was detected in the video.,failed
+selfie,selfie_voice_detection,Voice detection,user_action_required,alpha,no_speech_detected,No speech was detected in the audio.,failed
+selfie,selfie_voice_detection,Voice detection,user_action_required,alpha,number_mismatch,The spoken number does not match the expected number.,failed

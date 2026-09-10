@@ -1,0 +1,39 @@
+name: Go
+description: Go modules — testing package, table-driven tests, race detector
+
+test_command: "go test -race -coverprofile=coverage.out -v ./... 2>&1 | go-junit-report > junit.xml"
+artifact_format: junit_xml
+coverage_format: go_coverprofile
+
+frameworks:
+  runner: testing package, t.Run subtests
+  assertions: testify/require, testify/assert, stdlib
+  mocks: gomock + mockgen, hand-written fakes
+  coverage: go test -cover, -coverprofile
+  http: net/http/httptest
+  fuzzing: native -fuzz
+
+common_artifacts:
+  test_results: "junit.xml (via go-junit-report or gotestsum --junitfile)"
+  coverage: "coverage.out (go coverprofile format)"
+  logs: "go test -v stdout, race detector output, panic stacks"
+
+ci_example: |
+  # Using gotestsum (recommended for CI)
+  gotestsum --junitfile test-output/junit.xml -- -race -coverprofile=test-output/coverage.out ./...
+
+  # Or using go-junit-report
+  go test -race -coverprofile=test-output/coverage.out -v ./... 2>&1 | go-junit-report > test-output/junit.xml
+
+stack_context: |
+  This is a Go project. When analyzing failures:
+  - Reference table-driven test patterns with t.Run subtests
+  - Mention race detector findings (-race flag) as high-priority
+  - Note httptest for HTTP handler testing
+  - Coverage uses go coverprofile format (not Cobertura)
+  - Common issues: goroutine leaks, improper t.Parallel usage, shared state
+  - Fuzz test failures (go test -fuzz) indicate input boundary issues
+  - Build tags (-tags=integration) separate integration from unit tests
+  - Panic stacks in test output indicate unrecovered errors
+
+guidance: "go-testing-guidance.md"

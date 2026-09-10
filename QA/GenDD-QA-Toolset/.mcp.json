@@ -1,0 +1,26 @@
+{
+  "$comment": [
+    "MCP client registration for the TestRail bridge.",
+    "",
+    "Copy the mcpServers block into:",
+    "  - .mcp.json          at the repo root   (Claude Code / Cowork)",
+    "  - .cursor/mcp.json                      (Cursor - same shape)",
+    "",
+    "Paths are relative to the repo root, so register it from there.",
+    "On Windows, change 'python3' to 'python'.",
+    "",
+    "No credentials belong in this file. The bridge reads",
+    "engine/mcp/testrail/.env from its own directory, which keeps the secret out",
+    "of a config file that is easy to commit by accident.",
+    "",
+    "The tool list is built at startup, so restart the client after changing",
+    "TESTRAIL_MODE or TESTRAIL_ALLOW_DELETE - otherwise the new tools will not",
+    "appear. See README.md."
+  ],
+  "mcpServers": {
+    "testrail": {
+      "command": "python",
+      "args": ["engine/mcp/testrail/server.py"]
+    }
+  }
+}
